@@ -1,9 +1,9 @@
 # Quantum Playground — Battaglia Navale con Grover & Sfera di Bloch
 
-Raccolta di programmi didattici in Python sul calcolo quantistico, divisi in due famiglie:
+Raccolta di programmi didattici in Python sul calcolo quantistico, progettati per l'esame "Fisica della Computazione", divisi in due famiglie:
 
-- **Tre versioni di Battaglia Navale quantistica** (`quantum_battleship_*.py`), che usano l'algoritmo di Grover (via Qiskit) per localizzare una nave nascosta.
-- **Due visualizzatori interattivi della sfera di Bloch** (`bloch.py`, `bloch_circuit.py`), per esplorare stati e gate a un qubit.
+- **Tre versioni di Battaglia Navale quantistica** (`quantum_battleship_*.py`), che usano l'algoritmo di Grover (via Qiskit) per localizzare una nave "nascosta". -> **Sorting quantistico**
+- **Due visualizzatori interattivi della sfera di Bloch** (`bloch.py`, `bloch_circuit.py`), per esplorare stati e gate applicati su un qubit.
 
 ## L'algoritmo di Grover in breve
 
@@ -26,7 +26,7 @@ Nelle battaglie navali l'oracolo e il diffusore sono costruiti come **matrici de
 
 ### quantum_battleship_3x3.py / quantum_battleship_4x4.py
 
-Nave nascosta casuale in una griglia; il giocatore esegue una scansione quantistica e spara dove la probabilità è massima. Con 9 celle bastano ~2 iterazioni (R ≈ π/4·3 ≈ 2.4), con 16 circa 3. La classe `QuantumBattleshipGrover` espone:
+Nave "nascosta" casuale in una griglia; il giocatore esegue una scansione quantistica e spara dove la probabilità è massima. Con 9 celle bastano ~2 iterazioni (R ≈ π/4·3 ≈ 2.4), con 16 circa 3. La classe `QuantumBattleshipGrover` espone:
 
 - `grover_circuit(marked_idx, iterations)` — Hadamard iniziali, oracolo e diffusore come `UnitaryGate`, ripetuti per il numero di iterazioni richiesto;
 - `scan(iterations)` — traspila ed esegue il circuito sul simulatore statevector e salva le probabilità per cella;
@@ -38,7 +38,7 @@ Comandi: `scan [iterazioni]`, `plot`, `fuoco r c`, `q`. La versione 4x4 disegna 
 
 ### quantum_battleship_100x100.py
 
-Versione "gigante": 10.000 celle, 14 qubit, matrici dense 16.384×16.384 per oracolo e diffusore. La simulazione è **molto pesante** (diversi GB di RAM e minuti di calcolo), quindi il programma stampa l'avanzamento passo per passo, mostra il tempo di scansione, indica la cella con probabilità massima e traccia solo le prime 200 celle; la griglia ASCII mostra soltanto l'angolo superiore sinistro. Per test rapidi è consigliabile ridurre la griglia (es. 20×20 = 400 celle, 9 qubit).
+Versione "gigante": 10.000 celle, 14 qubit, matrici dense 16.384×16.384 per oracolo e diffusore. La simulazione è **molto pesante** (diversi GB di RAM e minuti di calcolo), quindi il programma stampa l'avanzamento passo per passo, mostra il tempo di scansione, indica la cella con probabilità massima e traccia solo le prime 200 celle; la griglia ASCII mostra soltanto l'angolo superiore sinistro. Per test rapidi è consigliabile ridurre la griglia (es. 20×20 = 400 celle, 9 qubit). Progettata per testare l'accuratezza dell'algoritmo **NON** realmente quantistico su hardware classico.
 
 ### bloch.py
 
@@ -73,3 +73,7 @@ python bloch_circuit.py
 ```
 
 I programmi richiedono un desktop con finestre matplotlib (nessun output headless).
+
+## AI 
+
+-Modelli AI sono stati usati per verificare l'accuratezza del codice e correggere alcuni bug.
